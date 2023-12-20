@@ -56,8 +56,19 @@ has(data, node = this.top) {
   }
 }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
+  find(data, node = this.top) {
+    if (node.data == data)
+      return node;
+    if (node.data < data)
+      if (node.right === null)
+        return null;
+      else
+        return this.find(data, node.right);
+    else
+      if (node.left === null)
+        return null;
+      else
+        return this.find(data, node.left);
     // remove line with error and write your code here
   }
 
