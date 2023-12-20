@@ -42,10 +42,19 @@ class BinarySearchTree {
         this.insertNode(node.right, newNode);
 }
 
-  has(data) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+has(data, node = this.top) {
+  if (node === null)
+      return false
+  if (node.data === data){
+      return true;
   }
+  if (node.data < data){
+      return this.has(data, node.right);
+  }
+   if (node.data > data){
+     return this.has(data, node.left);
+  }
+}
 
   find(/* data */) {
     throw new NotImplementedError('Not implemented');
