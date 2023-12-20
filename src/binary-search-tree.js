@@ -66,15 +66,23 @@ has(data, node = this.top) {
     // remove line with error and write your code here
   }
 
-  min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+  min(node = this.root()) {
+    if (node === null)
+        return null;
+    if (node.left === null){
+        return node.data;
+    }
+    return this.min(node.left);
+}
 
-  max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+max(node = this.root()) {
+  if (node === null)
+      return null;
+  if (node.right === null){
+      return node.data;
   }
+  return this.max(node.right);
+}
 }
 
 module.exports = {
